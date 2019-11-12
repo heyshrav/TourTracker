@@ -1,6 +1,7 @@
 <?php
  echo "hello";
-
+if(isset($_REQUEST['submit']))
+{
  $username =$_GET['username'];
  echo "got username";
  
@@ -13,11 +14,24 @@
  }
    mysqli_select_db($con,'project');
  
- $q = "INSERT INTO login (username,password) VALUES ('$username','$password') ";
- $i = mysqli_query($con,$q);
- echo $i;
- mysqli_close($con);
-
+ $q = "select username,password from login where username='$username' AND password='$password'";
+ $result=mysqli_query($con,$q);
+ echo "result retrieved";
+ $count=mysqli_num_rows($result);
+ echo $count;
+ echo "count retrieved";
+// If result matched $username and $password, table row must be 1 row
+ if($count == true)
+ {
+	 echo "Login Success";
+ }
+ else{
+	 echo "login failed";
+ }
+}
+else{
+	echo "Error";
+}
 ?>
 
 
@@ -53,7 +67,7 @@
 <!--===============================================================================================-->
 </head>
 <body>
-   <form action="index.php" method="GET">
+   <form method="GET">
 	<div class="limiter">
 		<div class="container-login100">
 		<div class="jumbotron">
@@ -109,7 +123,7 @@
 					</div>
 
 					<div class="container-login100-form-btn">
-						<input type="submit" value="Login" class="login100-form-btn">
+						<input type="submit" name="submit" value="Login" class="login100-form-btn">
 							
 						
 					</div>
