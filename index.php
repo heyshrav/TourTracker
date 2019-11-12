@@ -1,3 +1,28 @@
+<?php
+ echo "hello";
+
+ $username =$_GET['username'];
+ echo "got username";
+ 
+ $password =$_GET['pass'];
+
+ $con = mysqli_connect('localhost','root');
+ if($con)
+ {
+ echo "connection succes";
+ }
+   mysqli_select_db($con,'project');
+ 
+ $q = "INSERT INTO login (username,password) VALUES ('$username','$password') ";
+ $i = mysqli_query($con,$q);
+ echo $i;
+ mysqli_close($con);
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +53,7 @@
 <!--===============================================================================================-->
 </head>
 <body>
-
+   <form action="index.php" method="GET">
 	<div class="limiter">
 		<div class="container-login100">
 		<div class="jumbotron">
@@ -53,7 +78,7 @@
 						Username
 					</span>
 					<div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
-						<input class="input100" type="text" name="username" >
+						<input class="input100" type="text" name="username" required>
 						<span class="focus-input100"></span>
 					</div>
 					
@@ -64,7 +89,7 @@
 						<span class="btn-show-pass">
 							<i class="fa fa-eye"></i>
 						</span>
-						<input class="input100" type="password" name="pass" >
+						<input class="input100" type="password" name="pass" required >
 						<span class="focus-input100"></span>
 					</div>
 					
@@ -84,9 +109,9 @@
 					</div>
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Login
-						</button>
+						<input type="submit" value="Login" class="login100-form-btn">
+							
+						
 					</div>
 
 				</form>
@@ -98,7 +123,7 @@
 	</div>
 
 	<div id="dropDownSelect1"></div>
-	
+	</form>
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
