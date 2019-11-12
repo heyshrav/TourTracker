@@ -1,15 +1,61 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>Tournament DashBoard</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  
   </head>
   <body>
+       <div class="container">
+         <div class="headerBox">
+         <h1>Tournament Dashboard</h1>
+
+         </div>
+         </div>
+
+
+         <div class="container">
+       <div class="card">
+         <img class="card-img-top" src="holder.js/100x180/" alt="">
+         <div class="card-body">
+           <div class="headertwo">
+
+          <h2>Load Existing Tournament</h2>
+
+          </div>
+
+          <div class="dropdown">
+             <div class="dropdown-menu-lg-right">
+             <select name="LoadTournamentDropdown" id="">Load TOurnamnet
+               <option value="teamone"></option>
+               <option value="teamtwo"></option>
+               <option value="teamthree"></option>
+               <option value="teamfour"></option>
+             </select>
+             </div>
+   
+             </div>
+             <div class="mybuttons">
+             <button class="btn btn-dark">Load Tournament</button><br><br>
+             
+
+             
+             <h3>Or</h3><br><br>
+             
+             
+             <button class="btn btn-dark btn-lg">Create Tournament</button>
+             </div>
+         </div>
+       </div>
+
+         </div>
+    
       
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
