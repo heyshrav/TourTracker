@@ -16,7 +16,7 @@
   <?php include('nav.php') ?>
 <div  class="full-h">
      <div class="jumbotron jumbotron-fluid bg-transparent homecont">
-       <div class="container">
+       <div class="container register">
          <h1 class="display-4 dashbtitle">Dashboard</h1>
          <hr/>
          <div class="container">
@@ -44,14 +44,10 @@
                  </div>
                </div>
              </div>
-              <div class="col-lg-6">
-                   <div class="card text-white bg-dark createtourbtn ">
-                     <img class="card-img-top" src="holder.js/100px180/" alt="">
-                     <div class="card-body">
-                      <input type="button" value="Create New Tournament" class=" btn btn-block btn-lg " >
-                     </div>
+              <div class="col-lg-6 register-right">
 
-                   </div>
+              <a type="button"  href="CreateTournament.php" class=" btnCreateTour">Create New Tournament</a>
+                 
               </div>
           </div>
           </div>

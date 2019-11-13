@@ -25,21 +25,25 @@
   <!--===============================================================================================-->
   <link rel="stylesheet" type="text/css" href="css/util.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!--===============================================================================================-->
 </head>
 
 <body class="bglogin">
+
   <div class="logincontainer">
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
-          <div class="main-title">
-            <h1 class="display-4 main-titleh1">Welcome to<span class='title-bold'>TourTracker</span></h1>
-            <p class="lead">An app to track all the tournaments</p>
-            <hr class="my-5">
+          <div class="main-title"><br/>
+            <h1 class="display-4 main-titleh1">Welcome to<span class='title-bold'>TourTracker</span></h1><br/>
+            <p class="lead subtextlogin text-white">An app to track all the tournaments</p>
+            <hr class="my-1 bg-white subtextlogin">
             <br>
-            <p>Don't Have an Account?</p><br>
-            <p class="lead"><a class="btn btn-primary btn btn-lg" href="register" role="button">Create an Account!</a></p>
+            <p class="text-white subtextlogin">Don't Have an Account?</p><br>
+            <p class="subtextlead "><a class="btn btn-primary btn btn-outline-info subtextlogin" href="register" role="button">Create an Account!</a></p>
           </div>
         </div>
         <div class="col-lg-6">
