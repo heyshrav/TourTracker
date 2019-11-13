@@ -9,54 +9,57 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  
+    
   </head>
   <body>
+
+  <?php include('nav.php') ?>
+<div  class="full-h">
+     <div class="jumbotron jumbotron-fluid bg-transparent homecont">
        <div class="container">
-         <div class="headerBox">
-         <h1>Tournament Dashboard</h1>
-
-         </div>
-         </div>
-
-
+         <h1 class="display-4 dashbtitle">Dashboard</h1>
+         <hr/>
          <div class="container">
-       <div class="card">
-         <img class="card-img-top" src="holder.js/100x180/" alt="">
-         <div class="card-body">
-           <div class="headertwo">
+                  <div class="row">
+             <div class="col-lg-6">
 
-          <h2>Load Existing Tournament</h2>
+               <div class="card" style="background-color:; border-color:white;">
 
+
+                 <div class="card-body">
+                   <h4 class="card-title">Load Tournament</h4>
+
+                   <form class="form-inline">
+                       <label class="my-1 mr-5" for="selectTeamName">Select a team</label>
+                       <select class="custom-select my-1 mr-2" id="selectTeamName">
+                   <option selected class=''>Choose...</option>
+                   <option value="1">One</option>
+                   <option value="2">Two</option>
+                   <option value="3">Three</option>
+                       </select>
+
+                  <input type="submit" value="Submit" class="btn btn-outline-light btn-dark">
+                  </form>
+
+                 </div>
+               </div>
+             </div>
+              <div class="col-lg-6">
+                   <div class="card text-white bg-dark createtourbtn ">
+                     <img class="card-img-top" src="holder.js/100px180/" alt="">
+                     <div class="card-body">
+                      <input type="button" value="Create New Tournament" class=" btn btn-block btn-lg " >
+                     </div>
+
+                   </div>
+              </div>
           </div>
-
-          <div class="dropdown">
-             <div class="dropdown-menu-lg-right">
-             <select name="LoadTournamentDropdown" id="">Load TOurnamnet
-               <option value="teamone"></option>
-               <option value="teamtwo"></option>
-               <option value="teamthree"></option>
-               <option value="teamfour"></option>
-             </select>
-             </div>
-   
-             </div>
-             <div class="mybuttons">
-             <button class="btn btn-dark">Load Tournament</button><br><br>
-             
-
-             
-             <h3>Or</h3><br><br>
-             
-             
-             <button class="btn btn-dark btn-lg">Create Tournament</button>
-             </div>
-         </div>
+          </div>
        </div>
+   
+     </div>
+</div>
 
-         </div>
-    
-      
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

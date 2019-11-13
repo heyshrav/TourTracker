@@ -11,31 +11,85 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div class="jumbotron">
-        <h1 class="display-3">Create Team for Tournaments </h1>
-        <hr class="my-2">
-        <p>More info</p>
-        <p class="lead">
-            <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
-        </p>
+    <div class="jumbotron jumbotron-fluid">
+        <h1 class="display  m-l-100">Create Team for Tournaments </h1>
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
          <!-- left side -->
-            <div class="col-lg-6">
-                <section>
-                    <div class="form-group">
-                      <label for=""></label>
-                      <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
-                      <small id="helpId" class="text-muted">Help text</small>
-                    </div>
-                </section>
+            <div class="col-lg-7">
+               <div class="card">
+           <img class="card-img-top" src="holder.js/100x180/" alt="">
+                  <div class="card-body">
+            <h4 class="card-title">Create Teams</h4>
+
+            <form class="needs-validation" novalidate>
+
+            
+            <div class="col-md-4 mb-3">
+                       <label for="validationTooltip01">Team Name</label>
+                        <input type="text" class="form-control" id="validationTooltip01" placeholder="Enter team name" value="" required>
+                        <div class="valid-tooltip">
+        Looks good!
             </div>
-           
-            <div class="col-lg-6"></div>
+          </div>
+ 
+ 
+          <h4 class="card-title">Add members</h4>
+          <br/>
+          <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validationTooltip02">First name</label>
+      <input type="text" class="form-control" id="validationTooltip02" placeholder="Enter First name" value="Otto" required>
+      <div class="valid-tooltip">
+        Looks good!
+      </div>
+    </div>
+     </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationTooltip03">Last Name</label>
+      <input type="text" class="form-control" id="validationTooltip03" placeholder="City" required>
+      <div class="invalid-tooltip">
+        Please provide a valid city.
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationTooltip04">Email</label>
+      <input type="text" class="form-control" id="validationTooltip04" placeholder="State" required>
+      <div class="invalid-tooltip">
+        Please provide a valid state.
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationTooltip05">Cellphone</label>
+      <input type="text" class="form-control" id="validationTooltip05" placeholder="Zip" required>
+      <div class="invalid-tooltip">
+        Please provide a valid zip.
+      </div>
+    </div>
+  <button class="btn btn-primary" type="submit">Submit form</button>
+</form>
+                 </div>
+               </div>
+            </div>
+
+
+            <div class="col-lg-5">
+<div class="card" style="background-color:#333; border-color:#333;">
+  <img class="card-img-top" src="holder.js/100x180/" alt="">
+  <div class="card-body">
+    <h4 class="card-title">Alter Teams</h4>
+    <p class="card-text">Text</p>
+  </div>
+</div>
+
+            </div>
+        
         </div> 
      </div> 
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

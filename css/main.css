@@ -7,7 +7,13 @@
 
  /* Prize Section ---------*/
  
-  h1{
+ .full-h {
+   height: 100vh;
+   background: #232526; 
+   background: -webkit-linear-gradient(to right, #414345, #232526);
+   background: linear-gradient(to right, #414345, #232526);
+    }
+   h1{
     display:block;
     position: relative;
     left: 100px;
@@ -17,8 +23,32 @@
   }
 
 
+.dashbtitle {
+  margin-left: -200px;
+  text-align: center;
+  font-weight: 600;
+  color:#fff;
+  font-family: Raleway-Bold;
+}
+.createtourbtn {
+  padding-bottom: 20px;
+}
+.createtourbtn:hover {
 
-
+  background-color:#fff !important;
+  border: #000 !important;
+}
+.createtourbtn input {
+  color:#fff;
+  margin-top:20px;
+}
+.createtourbtn .input100:hover {
+  
+  background-color:#fff;
+}
+.homecont {
+ 
+}
 
 /*Prize Section End*/
 
@@ -78,8 +108,8 @@ padding-bottom: 10px;
 }
 
 body, html {
-	height: 100%;
-	font-family: Raleway-Regular, sans-serif;
+  font-family: Raleway-SemiBold, sans-serif;
+  height: 100%;
 }
 
 /*---------------------------------------------*/
@@ -208,10 +238,20 @@ iframe {
 [ login ]*/
 
 .limiter {
-  width: 100%;
-  margin: 0 auto;
+  width: auto;
+  margin-top:auto;
+  
+}
+.bglogin {
+  background: #232526; 
+background: -webkit-linear-gradient(to right, #414345, #232526);
+background: linear-gradient(to right, #414345, #232526); 
+display: ;
 }
 
+.main-titleh1 {
+  margin-left:0px;
+}
 .container-login100 {
   width: 100%;  
   min-height: 100vh;
@@ -224,16 +264,24 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 10px;
-  margin-bottom: -39px;
   background-color: #ebebeb;
 }
+.logincontainer {
+  margin-top: 50px;
+}
 
-
+.main-title span {
+font-size: larger;
+color:#d81953e3;
+}
+.main-title {
+  color:white;
+  margin-top:50px;
+}
 .wrap-login100 {
-  width: 560px;
+  width: auto;
   background: #fff;
   border-radius: 10px;
-  position: relative;
 }
 
 
@@ -241,7 +289,7 @@ iframe {
 [ Form ]*/
 
 .login100-form {
-  width: 100%;
+  width: auto;
 }
 
 .login100-form-title {
@@ -271,7 +319,7 @@ iframe {
 
 .wrap-input90 {
   width: 100%;
-  position: relative;
+  position: ;
   background-color: #fff;
   border: 1px solid #e6e6e6;
   border-radius: 2px;
