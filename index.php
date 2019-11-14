@@ -1,159 +1,130 @@
 <?php
- echo "hello";
-if(isset($_REQUEST['submit']))
-{
- $username =$_GET['username'];
- echo "got username";
- 
- $password =$_GET['pass'];
+session_start();
+ include"Connection.php";
+ if(isset($_REQUEST['submit']))
+ {
+  $username = $_REQUEST['username'];
+  $pass = $_REQUEST['pass'];
+  $q = "SELECT usename,password FROM login where username = '$username' AND password ='$pass'";
 
- $con = mysqli_connect('localhost','root');
- if($con)
- {
- echo "connection succes";
- }
-   mysqli_select_db($con,'project');
- 
- $q = "select username,password from login where username='$username' AND password='$password'";
- $result=mysqli_query($con,$q);
- echo "result retrieved";
- $count=mysqli_num_rows($result);
- echo $count;
- echo "count retrieved";
-// If result matched $username and $password, table row must be 1 row
- if($count == true)
- {
-	 echo "Login Success";
- }
- else{
-	 echo "login failed";
- }
+  $i = mysqli_query($con,$q);
+  echo $i;
+  $count = mysqli_num_rows($i);
+  if(count==true)
+  {
+   $_SESSION['username'] = $username;
+  header('location:CreateTournament.php');
+  }
+  else
+  {
+	alert('login Failed');
+  }
+   mysqli_close($con);
 }
 else{
-	echo "Error";
+	echo "Error Loading";
 }
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>TourTracker - Tournament Tracker</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-<!--===============================================================================================-->
+  <title>TourTracker - Tournament Tracker</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--===============================================================================================-->
+  <link rel="icon" type="image/png" href="images/icons/favicon.ico">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="css/util.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!--===============================================================================================-->
 </head>
-<body>
-   <form method="GET">
-	<div class="limiter">
-		<div class="container-login100">
-		<div class="jumbotron">
-				<h1 class="display-4">Welcome to <span class='title-bold'>TourTracker</span></h1>
-				<p class="lead">An app to track all the tournaments</p>
-				<hr class="my-5"><br/>
-				<p>Don't Have an Account?</p><br/>
-				<p class="lead">
-					<a class="btn btn-primary btn-lg" href="register" role="button">Create an Account!</a>
-				</p>
-			</div>
 
-			<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
+<body class="bglogin ">
+<form method="post">
+  <div class="logincontainer ">
+    <div class="container ">
+      <div class="row register">
+        <div class="col-lg-6 register-leftlogin">
+          <div class="main-title"><br/>
+            <h1 class="display-4 main-titleh1">Welcome to <b>TourTracker</b></h1>
+            <br/>
+                        
+            <p class="lead subtextlogin text-white">An app to track all the tournaments</p>
+            <hr class="my-1 bg-white subtextlogin">
+            <br>
+            <p class="text-white subtextlogin">Don't Have an Account?</p><br>
+            <p class="subtextlead "><a class="btn btn-primary btn btn-dark subtextlogin" href="register" role="button">Create an Account!</a></p>
+          </div>
+        </div>
+        <div class="col-lg-6 ">
+          <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55 register-rightinv">
+            <form class="login100-form validate-form flex-sb flex-w">
+              <span class="login100-form-title p-b-32">Login to get started!</span> <span class="txt1 p-b-11">Username</span>
+              <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
+                <input class="input100" type="text" name="username" required> <span class="focus-input100"></span>
+              </div><span class="txt1 p-b-11">Password</span>
+              <div class="wrap-input100 validate-input m-b-12" data-validate="Password is required">
+                <span class="btn-show-pass"><i class="fa fa-eye"></i></span> <input class="input100" type="password" name="pass" password> <span class="focus-input100"></span>
+              </div>
+              <div class="flex-sb-m w-full p-b-48">
+                <div class="contact100-form-checkbox">
+                  <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me"> <label class="label-checkbox100" for="ckb1">Remember me</label>
+                </div>
+                <div>
+                  <a href="#" class="txt3">Forgot Password?</a>
+                </div>
+              </div>
+              <div class="container-login100-form-btn">
+                <input type="submit" name="submit" value="Login" class="login100-form-btn">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </form>
+  <!--===============================================================================================-->
+  <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+   <!--===============================================================================================-->
 
+  <script src="vendor/animsition/js/animsition.min.js"></script> 
+  <!--===============================================================================================-->
 
-				<form class="login100-form validate-form flex-sb flex-w">
-					<span class="login100-form-title p-b-32">
-						Login to get started!
-					</span>
+  <script src="vendor/bootstrap/js/popper.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script> 
+  <!--===============================================================================================-->
 
-					<span class="txt1 p-b-11">
-						Username
-					</span>
-					<div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
-						<input class="input100" type="text" name="username" required>
-						<span class="focus-input100"></span>
-					</div>
-					
-					<span class="txt1 p-b-11">
-						Password
-					</span>
-					<div class="wrap-input100 validate-input m-b-12" data-validate = "Password is required">
-						<span class="btn-show-pass">
-							<i class="fa fa-eye"></i>
-						</span>
-						<input class="input100" type="password" name="pass" required >
-						<span class="focus-input100"></span>
-					</div>
-					
-					<div class="flex-sb-m w-full p-b-48">
-						<div class="contact100-form-checkbox">
-							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-							<label class="label-checkbox100" for="ckb1">
-								Remember me
-							</label>
-						</div>
+  <script src="vendor/select2/select2.min.js"></script>
+   <!--===============================================================================================-->
 
-						<div>
-							<a href="#" class="txt3">
-								Forgot Password?
-							</a>
-						</div>
-					</div>
+  <script src="vendor/daterangepicker/moment.min.js"></script>
+  <script src="vendor/daterangepicker/daterangepicker.js"></script> 
+  <!--===============================================================================================-->
 
-					<div class="container-login100-form-btn">
-						<input type="submit" name="submit" value="Login" class="login100-form-btn">
-							
-						
-					</div>
+  <script src="vendor/countdowntime/countdowntime.js"></script> 
+  <!--===============================================================================================-->
 
-				</form>
-			</div>
-		
-		</div>
-	
-		<?php echo file_get_contents("masthead.php"); ?>
-	</div>
-
-	<div id="dropDownSelect1"></div>
-	</form>
-<!--===============================================================================================-->
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/daterangepicker/moment.min.js"></script>
-	<script src="vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-	<script src="js/main.js"></script>
-
+  <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,25 +1,3 @@
-<?php
-echo"started";
-$username = $_GET['username'];
-$pass = $_GET['pass'];
-$con = mysqli_connect('localhost','root');
-if($con)
-{
-echo "connection succes";
-}
-  mysqli_select_db($con,'project');
-
-$q = "INSERT INTO login (username,password) VALUES ('$username','$pass') ";
-$i = mysqli_query($con,$q);
-echo $i;
-mysqli_close($con);
-
-?>
-
-
-
-
-
 
 
 
@@ -48,7 +26,7 @@ mysqli_close($con);
 <!--===============================================================================================-->
 </head>
 <body>
-   <form action="login.php" method="GET">	
+	<form method="post">
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
@@ -62,7 +40,7 @@ mysqli_close($con);
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="username" placeholder="Email">
+						<input class="input100" type="text" name="email" placeholder="Email">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -79,9 +57,9 @@ mysqli_close($con);
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<input type="submit" value="Login" class="login100-form-btn">
-							
-						
+						<button class="login100-form-btn">
+							Login
+						</button>
 					</div>
 
 					<div class="text-center p-t-12">
