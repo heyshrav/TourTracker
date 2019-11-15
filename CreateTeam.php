@@ -1,4 +1,30 @@
-
+<?php
+   include "Connection.php";
+   echo "Connection done";
+      if(isset($_REQUEST['submit']))
+   {
+  $tdynamic = array( $_REQUEST['teamone'], $_REQUEST['teamtwo'], $_REQUEST['teamall']);
+  $x = 20;
+   
+   echo "before Foreach";
+   foreach($tdynamic as $i)
+   {
+     if($i > $x)
+     {
+       echo "error Loading";
+     }
+     else
+     {
+       echo "script is running";
+       $q = "INSERT INTO teams (TeamName) VALUES ('$i')";
+       echo "working";
+       $z=mysqli_query($con,$q);
+       echo $z;
+       echo "1";
+     }
+   }
+   }
+?>
 
 <html lang="en">
   <head>
@@ -31,18 +57,18 @@
                 <div class="col-lg-12">
                              <div class="teamCreateInput">
                                 <p class="text-white">Enter Team #1 name</p>
-      <input id="TeamName[]" type="text" placeholder="Enter Tournament Name" name="mytext[]" autocomplete="off" required />
+      <input id="TeamName[]" type="text" placeholder="Enter Team Name" name="teamone" autocomplete="off" required />
                             </div>
 
                             <div class="teamCreateInput addnewteam">
                                 <p class="text-white">Enter Team #2 name</p>
-      <input id="TeamName" type="text" placeholder="Enter Tournament Name" name="mytext[]" autocomplete="off" required />
+      <input id="TeamName" type="text" placeholder="Enter Team Name" name="teamtwo" autocomplete="off" required />
       <button href="#" value="" class="add_team_button"><span class="fa fa-plus-circle fa-3x " aria-hidden="true"></span></button>
                             </div><br/>
                             <hr class="bg-white"/>
                             <div class="teamCreateInput">     
                     <a href="CreateTournament.php" class='btn-lg btn-outline-light btn '><span class="fa fa-arrow-left" aria-hidden="true"></span>&nbsp; &nbsp;GO Back </a>  
-                            <a href="home.php" class='btn-lg btn-outline-light btn '>Finish Creating Tournament &nbsp; &nbsp;<span class="fa fa-check" aria-hidden="true"></span></a>  
+                            <input type="submit" name="submit" value="Finish Creating Tournament" href="home.php" class='btn-lg btn-outline-light btn '> &nbsp; &nbsp;<span class="fa fa-check" aria-hidden="true"></span>  
                             </div>
                                
                   </div>
@@ -56,7 +82,7 @@
     $(document).ready(function() {
 	var max_fields      = 20; //maximum input boxes allowed
 	var wrapper   		= $(".addnewteam"); //Fields wrapper
-	var add_button      = $(".add_team_button"); //Add button ID
+	var add_button      = $(".add_team_button"); //Add button Class
 	
 	var x = 2; //initlal text box count
 	$(add_button).click(function(e){ //on add input button click
@@ -64,12 +90,13 @@
 		if(x < max_fields){ //max input box allowed
 			x++; //text box increment
 		
-      $(wrapper).append('<div class="teamCreateInput newteamdynamic"><p class="text-white">Enter Team #'+ x +' name'+'</p><input id="TeamName" type="text" placeholder="Enter Tournament Name" name="mytext[]" autocomplete="on" required /><a href="#" class="remove_team_field btn btn-sm btn-warning">Remove</a></div>')
+      $(wrapper).append('<div class="teamCreateInput newteamdynamic"><p class="text-white">Enter Team #'+ x +' name'+'</p><input id="TeamName" type="text" placeholder="Enter Team Name" name="teamall" autocomplete="on" required /><a href="#" class="remove_team_field btn btn-sm btn-warning">Remove</a></div>')
 		}
 	});
 	
 	$(wrapper).on("click",".remove_team_field", function(e){ //user click on remove text
-		e.preventDefault(); $(this).parent('div').remove(); x--;
+		e.preventDefault(); $(this).parent('div').remove();
+     x--;
 	})
 });
 </script>

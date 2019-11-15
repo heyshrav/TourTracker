@@ -10,13 +10,13 @@ if(isset($_REQUEST['submit']))
    $run = mysqli_query($con,$q);
    echo $run;
    if($run)
-   {
-     header('location:CreateTeam.php');
-   }
-   else
-   {
-     echo "Cannot Redirect to createteam";
-   }
+    {
+      header('location:CreateTeam.php');
+    }
+    else
+    {
+      echo "Cannot Redirect to createteam";
+    }
 }
 ?>
 
@@ -40,7 +40,7 @@ if(isset($_REQUEST['submit']))
      <div class="jumbotron jumbotron-fluid bg-transparent homecont">
        <div class="container register">
          <h1 class="display-4 dashbtitle">Create New Tournament</h1>
-         <hr/>
+         <hr>
 
 
                 
@@ -61,8 +61,8 @@ if(isset($_REQUEST['submit']))
                             <h4 class="text-white">Enter Tournament Type</h4>
                             <!-- Material input -->
                             <div class="text-select">
-                                        <select name="selectedSports" required id="selectTeamName" Required>
-                              <option selected class='' value="choose" >Choose the Sports</option>
+                                        <select name="selectedSports" required id="selectTeamName" Required class="validate[required]">
+                              <option selected class='' disabled="disabled" >Choose the Sports</option>
                               <option value="Basketball" required>BasketBall</option>
                               <option value="BaseBall" required>BaseBall</option>
                               <option value="BaseBall" required>BaseBall</option>
@@ -94,9 +94,10 @@ if(isset($_REQUEST['submit']))
 
     <!-- Optional JavaScript -->
   <script>
-   var selector = document.getElementById("selectedSports");
-if(selector.selectedIndex == 1) {
+   var selector = document.getElementByName("selectedSports");
+if(selector.selectedIndex == 0) {
      alert('select a valid sport');
+    
 }
     </script>
  
