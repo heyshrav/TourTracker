@@ -13,9 +13,10 @@ echo "Welcome ".$_SESSION['username'];
 include "Connection.php";
   if(isset($_REQUEST["Submit"]))
   {
+
     $tname = $_REQUEST["tournamentname"];
     $selectedsport = $_REQUEST["selectedSports"];
-
+    
     $q = "INSERT INTO tournament (TournamentName,sportype) VALUES ('$tname','$selectedsport')";
 
     $i = mysqli_query($con,$q);
@@ -23,6 +24,7 @@ include "Connection.php";
     {
       header('location:CreateTeam.php');
     }
+    $_SESSION['tourname']=$tname;
   }
 ?>
 

@@ -30,7 +30,7 @@ include('Connection.php');
 <div>
      <div class="jumbotron jumbotron-fluid bg-transparent homecont ">
        <div class="container register ">
-         <h1 class="display-4 dashbtitle">List of all Tournaments</h1>
+         <h1 class="display-4 dashbtitle">List of all Teams</h1>
          <hr/>
          <div class="container">
                   <div class="row">
@@ -40,22 +40,22 @@ include('Connection.php');
                           <thead>
                               <tr>
                                   <th>#</th>
-                                  <th>Tournament Name</th>
-                                  <th>Type of Sports</th>
+                                  <th>Team Name</th>
+                                  <th>Playing in</th>
                               </tr>
                           </thead>
                             <tbody>
                               <?php if ($con->connect_error) {
                                     die("Connection failed: " . $con->connect_error);
                                     }
-                                $query = "SELECT id, TournamentName, sportype FROM tournament";
+                                $query = "SELECT id, TeamName, TourName FROM teams";
                                 $result = $con->query($query);
                               if ($result->num_rows > 0) {
                               while($row = $result->fetch_assoc()) {
                               echo "<tr>
                               <td>" . $row["id"]. "</td>
-                              <td>" . $row["TournamentName"] . "</td>
-                              <td>" . $row["sportype"]. "</td>
+                              <td>" . $row["TeamName"] . "</td>
+                              <td>" . $row["TourName"]. "</td>
                               </tr>";
                               }
                               

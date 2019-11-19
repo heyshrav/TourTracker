@@ -14,6 +14,8 @@ session_start();
    $tdynamic = array($_REQUEST['teamone'], $_REQUEST['teamtwo'], $_REQUEST['teamall']);
    echo "";
    $x = 20;
+   $tname=$_SESSION['tourname'];
+
     foreach($tdynamic as $i)
     {
        if($i >= $x)
@@ -21,7 +23,7 @@ session_start();
          echo "error Loading";
        }
      
-        $q = "INSERT INTO teams (TeamName) VALUES ('$i')";
+        $q = "INSERT INTO teams (TeamName,TourName) VALUES ('$i','$tname')";
         
         $z=mysqli_query($con,$q);
       }     
@@ -47,7 +49,7 @@ session_start();
 
   <?php include('nav.php') ?>
 
-<div  class="logincontainer">
+<div  class="">
      <div class="jumbotron jumbotron-fluid bg-transparent homecont">
        <div class="container register">
          <h1 class="dashbtitle">Add teams to Tournament</h1>
@@ -81,7 +83,7 @@ session_start();
           
         </div>
 </form>  
-    <!-- Optional JavaScript -->
+
     <script>
     $(document).ready(function() {
 	var max_fields      = 20; //maximum input boxes allowed

@@ -23,7 +23,7 @@
   <body class="full-h" >
 
   <?php include('nav.php') ?>
-  <div class=" logincontainer">
+  <div class=" ">
      <div class="jumbotron jumbotron-fluid bg-transparent homecont">
        <div class="container register ">
          <h1 class="display-4 dashbtitle">Welcome to Dashboard</h1>
