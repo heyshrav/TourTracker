@@ -12,11 +12,13 @@
  $i = mysqli_query($con,$q);
  echo $i;
  mysqli_close($con);
+ 
+header('location:index.php');
  }
  else
  {
-   echo "Connection Failed";
  }
+
 ?>
 
 <!DOCTYPE html>
@@ -51,10 +53,9 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
-<body class="bglogin">
-<?php include('nav.php') ?>
+<body class="bglogin logincontainer">
 <form action="" method="post">
-<div class="container register ">
+<div class="container  register ">
                 <div class="row">
                     <div class="col-md-3 register-left">
                         <i class="fa fa-user-plus fa-4x" aria-hidden="true"></i>

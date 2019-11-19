@@ -6,15 +6,13 @@ session_start();
           header('location:index.php');
           session_unset();
         }
-        echo $_SESSION['username'];
 
 ///////////////////////////////////////////////////////////
    include "Connection.php";
-    echo "Connection done";
        if(isset($_REQUEST['submit']))
     {
    $tdynamic = array($_REQUEST['teamone'], $_REQUEST['teamtwo'], $_REQUEST['teamall']);
-   echo "before Foreach";
+   echo "";
    $x = 20;
     foreach($tdynamic as $i)
     {
@@ -23,13 +21,12 @@ session_start();
          echo "error Loading";
        }
      
-        echo "script is running";
         $q = "INSERT INTO teams (TeamName) VALUES ('$i')";
-        echo "working";
+        
         $z=mysqli_query($con,$q);
-        echo $z;
       }     
-
+      
+      header('location:TournamentViewer.php');
     }
     ?>
 
@@ -50,11 +47,10 @@ session_start();
 
   <?php include('nav.php') ?>
 
-<div  class="">
+<div  class="logincontainer">
      <div class="jumbotron jumbotron-fluid bg-transparent homecont">
        <div class="container register">
          <h1 class="dashbtitle">Add teams to Tournament</h1>
-         <br/>
           <hr class="bg-white"/>
          
         <br/>
@@ -75,8 +71,8 @@ session_start();
                             </div><br/>
                             <hr class="bg-white"/>
                             <div class="teamCreateInput">     
-                    <a href="CreateTournament.php" class='btn-lg btn-outline-light btn '><span class="fa fa-arrow-left" aria-hidden="true"></span>&nbsp; &nbsp;GO Back </a>  
-                            <input type="submit" name="submit" value="Finish Creating Tournament" href="home.php" class='btn-lg btn-outline-light btn '> &nbsp; &nbsp;<span class="fa fa-check" aria-hidden="true"></span>  
+                    <a href="CreateTournament.php" class=' btn-outline-light btn '><span class="fa fa-chevron-left" aria-hidden="true"></span>&nbsp; &nbsp;Go Back </a>  
+                            <input type="submit" name="submit" value="Finish Creating Tournament & Teams" href="home.php" class='btn btn-lg btn-light '> 
                             </div>
                                
                   </div>

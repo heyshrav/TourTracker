@@ -12,18 +12,18 @@
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <nav class="navbar navbar-expand-lg ftco_navbar navbar-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="/tourtracker/">Tournament Tracker</a>
+	      <a class="navbar-brand" href="/tourtracker/home.php"><span class="font-weight-bold"><?php echo $_SESSION['username'];?>'s</span> Tournament Tracker</a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
+	        <span class="oi oi-menu"><i class="fa fa-caret-down" aria-hidden="true"></i></span> 
 	      </button>
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="/tourtracker/" class="nav-link"><i class="fa fa-home"></i>&nbsp;Home</a></li>
-	          <li class="nav-item"><a href="CreateTeam/" class="nav-link"><i class="fa fa-users"></i>&nbsp;CreateTeams</a></li>
-	          <li class="nav-item"><a href="TournamentViewer/" class="nav-link"><i class="fa fa-stack-overflow"></i>&nbsp;TournamentViewer</a></li>
+	          <li class="nav-item active"><a href="/tourtracker/" class="nav-link "><i class="fa fa-home  "></i>&nbsp;Home</a></li>
+	          <li class="nav-item"><a href="TeamViewer.php/" class="nav-link "><i class="fa fa-users "></i>&nbsp;Team Viewer</a></li>
+	          <li class="nav-item"><a href="TournamentViewer.php" class="nav-link "><i class="fa fa-stack-overflow "></i>&nbsp;Tournament Viewer</a></li>
 	          <li class="nav-item"><a href="logout.php" class="nav-link"><i class="fa fa-user"></i>&nbsp;Logout</a></li>
             
           </ul>

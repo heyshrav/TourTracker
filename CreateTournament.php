@@ -83,7 +83,9 @@ include "Connection.php";
                               </select>
                       </div></div>
                             <br/> 
-                      <input href="createTeam.php" name="Submit" value="Next" type="submit" class='btn-lg btn-outline-light btn'></a>
+                            
+                      <a href="home.php" class=' btn btn-lg btn-outline-light'><i class="fa fa-chevron-left" aria-hidden="true"></i> &nbsp;&nbsp;Go Back</a>
+                <input name="Submit" value="Create Tournament and Move to Create Teams" type="submit" class='btn-lg btn-outline-light btn'>
                 </form>
                 </div>
               </div>

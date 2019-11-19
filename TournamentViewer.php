@@ -1,4 +1,16 @@
+<?php
+///////////////////////////////////////////////////////////
+session_start();
+    if(!isset($_SESSION['username']))
+        {
+          header('location:index.php');
+          session_unset();
+        }
 
+///////////////////////////////////////////////////////////
+include('Connection.php');
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -18,42 +30,45 @@
 <div  class="full-h ">
      <div class="jumbotron jumbotron-fluid bg-transparent homecont ">
        <div class="container register ">
-         <h1 class="display-4 dashbtitle">{TourName} Tournament</h1>
+         <h1 class="display-4 dashbtitle">List of all Tournaments</h1>
          <hr/>
          <div class="container">
                   <div class="row">
-             <div class="col-lg-6 register-right">
-
-               <div>
 
 
-                 <div class="card-body">
-                   <h4 class="card-title">Load Tournament</h4>
+                      <table class="table table-light table-borderless viewertable">
+                          <thead>
+                              <tr>
+                                  <th>#</th>
+                                  <th>Tournament Name</th>
+                                  <th>Type of Sports</th>
+                              </tr>
+                          </thead>
+                            <tbody>
+                              <?php if ($con->connect_error) {
+                                    die("Connection failed: " . $con->connect_error);
+                                    }
+                                $query = "SELECT id, TournamentName, sportype FROM tournament";
+                                $result = $con->query($query);
+                              if ($result->num_rows > 0) {
+                              while($row = $result->fetch_assoc()) {
+                              echo "<tr>
+                              <td>" . $row["id"]. "</td>
+                              <td>" . $row["TournamentName"] . "</td>
+                              <td>" . $row["sportype"]. "</td>
+                              </tr>";
+                              }
+                              
+                              } else { echo "0 results"; }
+                              $con->close();
+                              ?>
 
-                   <form class="form-inline" action="TournamentViewer.php" method="post">
-                       <label class="my-1 mr-5" for="selectTeamName">Select a team</label>
-                       <select class="custom-select my-1 mr-2" id="selectTeamName">
-                   <option selected class=''>Choose...</option>
-                   <option value="1">One</option>
-                   <option value="2">Two</option>
-                   <option value="3">Three</option>
-                       </select>
-
-                  <input type="submit" value="Open Tournament!" class="btn btn-outline-light btn-dark">
-                  </form>
-
-                 </div>
-               </div>
-             </div>
-              <div class="col-lg-6 register-rightinv">
-
-              <a type="button"  href="CreateTournament.php" class=" btnCreateTour">Create New Tournament</a>
-                 
-              </div>
-          </div>
-          </div>
-       </div>
-   
+                            </tbody>
+                        </table>
+                              <div class="col-lg-12 teamCreateInput"><br/><br/>
+                  <a href="home.php" class="btn btn-lg btn-outline-dark text-white border-white"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp; Go back</a>
+            <a href="TeamViewer.php" class="btn btn-lg btn-outline-dark text-white border-white">Open Team Viewer&nbsp;&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
+                            </div>
      </div>
 </div>
 
