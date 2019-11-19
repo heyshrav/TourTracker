@@ -24,7 +24,7 @@
 	          <li class="nav-item active"><a href="/tourtracker/" class="nav-link"><i class="fa fa-home"></i>&nbsp;Home</a></li>
 	          <li class="nav-item"><a href="CreateTeam/" class="nav-link"><i class="fa fa-users"></i>&nbsp;CreateTeams</a></li>
 	          <li class="nav-item"><a href="TournamentViewer/" class="nav-link"><i class="fa fa-stack-overflow"></i>&nbsp;TournamentViewer</a></li>
-	          <li class="nav-item"><a href="contact/" class="nav-link"><i class="fa fa-user"></i>&nbsp;Logout</a></li>
+	          <li class="nav-item"><a href="logout.php" class="nav-link"><i class="fa fa-user"></i>&nbsp;Logout</a></li>
             
           </ul>
 	      </div>

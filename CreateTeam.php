@@ -1,4 +1,14 @@
 <?php
+///////////////////////////////////////////////////////////
+session_start();
+    if(!isset($_SESSION['username']))
+        {
+          header('location:index.php');
+          session_unset();
+        }
+        echo $_SESSION['username'];
+
+///////////////////////////////////////////////////////////
    include "Connection.php";
     echo "Connection done";
        if(isset($_REQUEST['submit']))

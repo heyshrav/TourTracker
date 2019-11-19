@@ -1,4 +1,14 @@
 <?php
+///////////////////////////////////////////////////////////
+session_start();
+    if(!isset($_SESSION['username']))
+        {
+          header('location:index.php');
+          session_unset();
+        }
+        echo $_SESSION['username'];
+
+///////////////////////////////////////////////////////////
 include "Connection.php";
 if(isset($_REQUEST['submit']))
 {
@@ -7,7 +17,6 @@ $prizeamount = $_REQUEST['prizeamount'];
 $q = "INSERT INTO prize (PlaceNumber,PrizeAmount) VALUES ($placenumber,$prizeamount)";
 echo "query";
  mysqli_query($con,$q);
-
 
 }
 ?>

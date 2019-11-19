@@ -30,7 +30,7 @@ $passworderror = "";
     if($count==true)
     {
       $_SESSION['username'] = $username;
-      header('location:CreateTournament.php');
+      header('location:home.php');
     }
      else
     {
