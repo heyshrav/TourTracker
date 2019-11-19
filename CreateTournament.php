@@ -2,31 +2,19 @@
 session_start();
 echo "Welcome ".$_SESSION['username'];
 include "Connection.php";
-if(isset($_REQUEST['submit']))
-{
-   $tname = $_REQUEST['tournamentname'];
-   $selectedsport = $_REQUEST['selectedSports'];
-   $q = "INSERT INTO tournament (TournamentName,sportype) VALUES ('$tname','$selectedsport')";
-   $run = mysqli_query($con,$q);
-   echo $run;
-   if($run)
-    { 
-      if(isset($_REQUEST['selectedSports']))
-      {
-      if(count($selectedsport)== NULL)
-      {
-        echo "Error";
-      }
-      else{
-      header('location:CreateTeam.php');
-      }
-    }
-    }
-    else
+  if(isset($_REQUEST["Submit"]))
+  {
+    $tname = $_REQUEST["tournamentname"];
+    $selectedsport = $_REQUEST["selectedSports"];
+
+    $q = "INSERT INTO tournament (TournamentName,sportype) VALUES ('$tname','$selectedsport')";
+
+    $i = mysqli_query($con,$q);
+    if($i)
     {
-      echo "Cannot Redirect to createteam";
+      header('location:CreateTeam.php');
     }
-}
+  }
 ?>
 
 <html lang="en">
@@ -71,9 +59,9 @@ if(isset($_REQUEST['submit']))
                             <!-- Material input -->
                             <div class="text-select">
                                         <select name="selectedSports" required id="selectTeamName" Required class="validate[required]">
-                              <option selected class='' disabled="disabled" >Choose the Sports</option>
+                              <option selected class='' value="hi" disabled="disabled" >Choose the Sports</option>
                               <option value="Basketball" required>BasketBall</option>
-                              
+                              <option value="BaseBall" required>BaseBall</option>
                               <option value="BaseBall" required>BaseBall</option>
                               <option value="Chess" required>Chess</option>
                               <option value="Cricket" required>Cricket</option>
@@ -86,7 +74,7 @@ if(isset($_REQUEST['submit']))
                               </select>
                       </div></div>
                             <br/> 
-                      <input href="createTeam.php" name="submit" value="Next" type="submit" class='btn-lg btn-outline-light btn'></a>
+                      <input href="createTeam.php" name="Submit" value="Next" type="submit" class='btn-lg btn-outline-light btn'></a>
                 </form>
                 </div>
               </div>
@@ -103,13 +91,10 @@ if(isset($_REQUEST['submit']))
 
     <!-- Optional JavaScript -->
   <script>
-  $(document).ready(function()
-   var selector = document.getElementByName("selectedSports");
-if(selector.selectedIndex == 0) {
-     alert('select a valid sport');
-    
-});
-    </script>
+ var selector = document.getElementById("selectTeamName")[0].value;
+if(selector.value == "hi") {
+     alert('select one answer');
+</script>
  
 }
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
