@@ -1,29 +1,47 @@
 <?php
 session_start();
+$usernameerror = "";
+$passworderror = "";
  include"Connection.php";
  if(isset($_REQUEST['submit']))
  {
-  $username = $_REQUEST['username'];
-  $pass = $_REQUEST['pass'];
-  $q = "SELECT usename,password FROM login where username = '$username' AND password ='$pass'";
+     if(empty($_REQUEST['username']))
+      {
+        $usernameerror = "Username is Required";
+      }
+      else{
+        $username = $_REQUEST['username'];
+      }
+  
+      if(empty($_REQUEST['pass']))
+      {
+        $passworderror = "password is Required";
+      }
+      else{
+        $password = $_REQUEST['pass'];
+      }
+ 
+    $q = "SELECT username,password FROM login where username = '$username' AND password ='$password'";
 
-  $i = mysqli_query($con,$q);
-  echo $i;
-  $count = mysqli_num_rows($i);
-  if(count==true)
-  {
-   $_SESSION['username'] = $username;
-  header('location:CreateTournament.php');
+    $i = mysqli_query($con,$q);
+    echo '$i';
+    $count = mysqli_num_rows($i);
+    echo $count;
+    if($count==true)
+    {
+      $_SESSION['username'] = $username;
+      header('location:CreateTournament.php');
+    }
+     else
+    {
+	    echo 'login Failed';
+    }
+   
+ }
+  else{
+	 echo "Error Loading";
   }
-  else
-  {
-	alert('login Failed');
-  }
-   mysqli_close($con);
-}
-else{
-	echo "Error Loading";
-}
+  mysqli_close($con);
 ?>
 
 <!DOCTYPE html>
@@ -81,10 +99,10 @@ else{
             <form class="login100-form validate-form flex-sb flex-w">
               <span class="login100-form-title p-b-32">Login to get started!</span> <span class="txt1 p-b-11">Username</span>
               <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
-                <input class="input100" type="text" name="username" required> <span class="focus-input100"></span>
+                <input class="input100" type="text" name="username" required <?php  echo $usernameerror ?> > <span class="focus-input100"></span>
               </div><span class="txt1 p-b-11">Password</span>
               <div class="wrap-input100 validate-input m-b-12" data-validate="Password is required">
-                <span class="btn-show-pass"><i class="fa fa-eye"></i></span> <input class="input100" type="password" name="pass" password> <span class="focus-input100"></span>
+                <span class="btn-show-pass"><i class="fa fa-eye"></i></span> <input class="input100" type="password" name="pass" required value="password" <?php echo $passworderror  ?>  > <span class="focus-input100"></span>
               </div>
               <div class="flex-sb-m w-full p-b-48">
                 <div class="contact100-form-checkbox">

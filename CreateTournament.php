@@ -10,8 +10,17 @@ if(isset($_REQUEST['submit']))
    $run = mysqli_query($con,$q);
    echo $run;
    if($run)
-    {
+    { 
+      if(isset($_REQUEST['selectedSports']))
+      {
+      if(count($selectedsport)== NULL)
+      {
+        echo "Error";
+      }
+      else{
       header('location:CreateTeam.php');
+      }
+    }
     }
     else
     {
@@ -64,7 +73,7 @@ if(isset($_REQUEST['submit']))
                                         <select name="selectedSports" required id="selectTeamName" Required class="validate[required]">
                               <option selected class='' disabled="disabled" >Choose the Sports</option>
                               <option value="Basketball" required>BasketBall</option>
-                              <option value="BaseBall" required>BaseBall</option>
+                              
                               <option value="BaseBall" required>BaseBall</option>
                               <option value="Chess" required>Chess</option>
                               <option value="Cricket" required>Cricket</option>
@@ -94,11 +103,12 @@ if(isset($_REQUEST['submit']))
 
     <!-- Optional JavaScript -->
   <script>
+  $(document).ready(function()
    var selector = document.getElementByName("selectedSports");
 if(selector.selectedIndex == 0) {
      alert('select a valid sport');
     
-}
+});
     </script>
  
 }

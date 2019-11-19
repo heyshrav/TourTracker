@@ -1,15 +1,15 @@
 <?php
+include "Connection.php";
+if(isset($_REQUEST['submit']))
+{
+$placenumber = $_REQUEST['placenumber'];
+$prizeamount = $_REQUEST['prizeamount'];
+$q = "INSERT INTO prize (PlaceNumber,PrizeAmount) VALUES ($placenumber,$prizeamount)";
+echo "query";
+ mysqli_query($con,$q);
 
-$placenumber = $_POST['placenumber'];
-$prizeamount = $_POST['prizeamount'];
 
-$con = mysqli_connect('localhost','root');
-mysqli_select_db($con,'project');
-$q = "Insert into prize values($placenumber,$prizeamount)";
-$i = mysqli_query($con,$q);
-echo $i;
-mysqli_close($con);
-
+}
 ?>
 
 
@@ -26,7 +26,7 @@ mysqli_close($con);
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-      <form id="prize" action="CreatePrize.php" method="post">
+      <form id="prize"  method="post">
              <div class="card">
                     <div class="card-header">
                 <div class="header-div">
@@ -40,7 +40,7 @@ mysqli_close($con);
                         <input type="text" name="placenumber">
                         <label class="prizeamt-label" for="">PrizeAmount :</label>
                         <input type="text" name="prizeamount"><br>
-                        <input type="submit" value="Create" class="btn btn-dark btn-lg createprize-button"/>
+                        <input type="submit" name="submit" value="Create" class="btn btn-dark btn-lg createprize-button"/>
                      </div>
                </div>
          </div>

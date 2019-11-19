@@ -1,30 +1,36 @@
-<?php
-   include "Connection.php";
-   echo "Connection done";
-      if(isset($_REQUEST['submit']))
-   {
-  $tdynamic = array( $_REQUEST['teamone'], $_REQUEST['teamtwo'], $_REQUEST['teamall']);
-  $x = 20;
+
+  //  include "Connection.php";
+  //  echo "Connection done";
+  //     if(isset($_REQUEST['submit']))
+  //  {
+  // $tdynamic = array(); //$_REQUEST['teamone'], $_REQUEST['teamtwo'], $_REQUEST['teamall']);
+  // $x = $_POST['count'];
+  // echo $x;
+  // $i=1;
+  // for(;$i<$x;$i++){
+  //   $teamnumber = "team$i"; 
+  //   $arr = $_REQUEST[$teamnumber];
+  //   array_push($tdynamic, $arr);
+  //   echo $arr;
+  // }
    
-   echo "before Foreach";
-   foreach($tdynamic as $i)
-   {
-     if($i > $x)
-     {
-       echo "error Loading";
-     }
-     else
-     {
-       echo "script is running";
-       $q = "INSERT INTO teams (TeamName) VALUES ('$i')";
-       echo "working";
-       $z=mysqli_query($con,$q);
-       echo $z;
-       echo "1";
-     }
-   }
-   }
-?>
+  //  echo "before Foreach";
+  //  foreach($tdynamic as $i)
+  //  {
+  //   //  if($i >= $x)
+  //   //  {
+  //   //    echo "error Loading";
+  //   //  }
+     
+  //      echo "script is running";
+  //      $q = "INSERT INTO teams (TeamName) VALUES ('$i')";
+  //      echo "working";
+  //      $z=mysqli_query($con,$q);
+  //      echo $z;
+  //      echo "1";
+
+  //  }
+
 
 <html lang="en">
   <head>
@@ -53,7 +59,7 @@
 
   <form action="" method="post">            
        <div class=''>
-         
+                <input type="hidden" name="count" value="">
                 <div class="col-lg-12">
                              <div class="teamCreateInput">
                                 <p class="text-white">Enter Team #1 name</p>
@@ -85,18 +91,20 @@
 	var add_button      = $(".add_team_button"); //Add button Class
 	
 	var x = 2; //initlal text box count
+  
 	$(add_button).click(function(e){ //on add input button click
 		e.preventDefault();
 		if(x < max_fields){ //max input box allowed
 			x++; //text box increment
-		
-      $(wrapper).append('<div class="teamCreateInput newteamdynamic"><p class="text-white">Enter Team #'+ x +' name'+'</p><input id="TeamName" type="text" placeholder="Enter Team Name" name="teamall" autocomplete="on" required /><a href="#" class="remove_team_field btn btn-sm btn-warning">Remove</a></div>')
+      $('input[name="count"]').val(x);    
+      $(wrapper).append('<div class="teamCreateInput newteamdynamic"><p class="text-white">Enter Team #'+ x +' name'+'</p><input id="TeamName" type="text" placeholder="Enter Team Name" name="team'+x+'" autocomplete="on" required /><a href="#" class="remove_team_field btn btn-sm btn-warning">Remove</a></div>')
 		}
 	});
 	
 	$(wrapper).on("click",".remove_team_field", function(e){ //user click on remove text
 		e.preventDefault(); $(this).parent('div').remove();
      x--;
+     
 	})
 });
 </script>
